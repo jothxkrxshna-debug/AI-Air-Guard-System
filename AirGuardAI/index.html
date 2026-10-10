@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirGuard AI</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+    <a href="#" class="logo">🌿 AirGuard <span>AI</span></a>
+
+    <div class="nav-links">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#air-quality">Live AQI</a>
+        <a href="#map">Pollution Map</a>
+        <a href="#history">Reports</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <p class="hero-tag">🌍 SMART ENVIRONMENT MONITORING</p>
+    <h1>Cleaner Air, <span>Healthier Future.</span></h1>
+    <p>Monitor air quality, understand pollution risks,
+       and take action for a greener tomorrow.</p>
+    <a href="#air-quality" class="hero-btn">Check Air Quality ↗</a>
+</header>
+
+    <h1>🌍 AirGuard AI</h1>
+    <h2>Smart Air Pollution Monitoring System</h2>
+
+    <hr>
+
+    <h3>📊 Air Quality Dashboard</h3>
+
+    <p>PM2.5: 48 µg/m³</p>
+    <p>PM10: 72 µg/m³</p>
+    <p>Pollution Risk: 🟠 MODERATE</p>
+
+    <hr>
+
+    <h3>📝 Report Pollution</h3>
+
+    <form>
+        <label>Enter Location:</label>
+        <input type="text" id="location" placeholder="Enter your location">
+
+        <br><br>
+
+        <label>Pollution Type:</label>
+
+        <select  id="pollution">
+            <option>Vehicle Smoke</option>
+            <option>Factory Smoke</option>
+            <option>Waste Burning</option>
+            <option>Other</option>
+        </select>
+
+        <br><br>
+
+        <button type="button" onclick="submitReport()">Submit Report</button>
+    </form>
+    <div id="result"></div>
+    <div id="history"></div>
+
+    <hr>
+<!-- Pollution Dashboard -->
+<section id="dashboard">
+    <h2>🌱 AirGuard AI Dashboard</h2>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Total Reports</h3>
+            <p id="totalReports">0</p>
+        </div>
+
+        <div class="card">
+            <h3>High Risk</h3>
+            <p id="highRisk">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Moderate Risk</h3>
+            <p id="moderateRisk">0</p>
+        </div>
+    </div>
+</section>
+
+<section id="air-quality">
+    <h2>🌍 Live Air Quality</h2>
+
+    <input
+        type="text"
+        id="aqiLocation"
+        placeholder="Enter city (e.g., Salem)"
+    >
+
+    <button onclick="getAirQuality()">
+        Check Air Quality
+    </button>
+
+    <div id="aqiResult">
+        Enter a city to check air quality.
+    </div>
+</section>
+
+<h3>🗺️ Pollution Report Map</h3>
+
+<p>View pollution report locations on the map.</p>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<div id="map" style="height:400px; width:100%; border:2px solid red; border-radius:12px;"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+<section id="prediction">
+    <h2>🤖 AI Pollution Prediction</h2>
+
+    <p>Check a possible pollution risk based on the current AQI reading.</p>
+
+    <label for="predictionAQI">Enter US AQI:</label>
+    <input type="number" id="predictionAQI"
+           placeholder="Example: 89" min="0" max="500">
+
+    <button type="button" onclick="predictPollution()">
+        Predict Risk
+    </button>
+
+    <div id="predictionResult">
+        Enter an AQI value to see the risk category.
+    </div>
+
+    <small>
+        This is a rule-based demo, not a forecast of future air quality.
+    </small>
+</section>
+
+    <footer>
+        <p>AirGuard AI | Hackathon Prototype</p>
+        <p>Note: Displayed pollution values are sample data.</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
